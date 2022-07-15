@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Input site</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
@@ -15,19 +16,39 @@
             <div class="col-lg-6">
                 <form>
                     <label for="word" class="form-label">Make your guess</label>
-                    <input type="text" class="form-control" id="word" placeholder="eg John doe">
+                    <div class="d-flex flex-row">
+                    <input type="text" class="form-control mx-1" id="word" placeholder="eg John doe">
+                    <button class="btn btn-primary" onclick="command()">Submit</button>
+                    </div>
+                    <span id="output" class="bg-warning">so</span>
                 </form>
-                <h1 class="h3 text-center pt-3">Guess the Number</h1>
+                <h1 class="h3 text-center pt-3" id="head"></h1>
             </br>
                 <form>
-                    <label for="word" class="form-label">Make your guess</label>
-                    <input type="text" class="form-control" id="word" placeholder="eg 312">
+                    <label for="Number" class="form-label">Make your guess</label>
+                    <div class="d-flex flex-row">
+                    <input type="text" class="form-control mx-1" id="number" placeholder="eg 312">
+                    <button class="btn btn-primary" onclick ="command()" id="btn">Submit</button>
+                </div>
                 </form>
             </div>
         </div>
     </div>
         </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script>
+
+        document.getElementById("btn").onclick(command());
+       function command() {
+        let values = document.getElementById("word").value;
+        const alert = document.querySelector("#output");
+        if (values === "Avocado") {
+             document.getElementById("output").innerHTML = "correct";
+        }
+        else {
+            document.getElementById("output").innerHTML = "Wrong Value";
+        }
+        }
+    </script>
   </body>
 </html>
