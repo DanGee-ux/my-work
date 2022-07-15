@@ -18,9 +18,9 @@
                     <label for="word" class="form-label">Make your guess</label>
                     <div class="d-flex flex-row">
                     <input type="text" class="form-control mx-1" id="word" placeholder="eg John doe">
-                    <button class="btn btn-primary" onclick="command()">Submit</button>
+                    <button class="btn btn-primary" onclick="command()" id="btn">Submit</button>
                     </div>
-                    <span id="output" class="bg-warning">so</span>
+                    <span id="output" class="bg-warning text-light rounded-1 mt-2">hmm...</span>
                 </form>
                 <h1 class="h3 text-center pt-3" id="head"></h1>
             </br>
@@ -30,6 +30,7 @@
                     <input type="text" class="form-control mx-1" id="number" placeholder="eg 312">
                     <button class="btn btn-primary" onclick ="command()" id="btn">Submit</button>
                 </div>
+                <span id="input" class="bg-warning text-light rounded-1 mt-2" onclick="execute()">hmm...</span>
                 </form>
             </div>
         </div>
@@ -39,14 +40,25 @@
     <script>
 
         document.getElementById("btn").onclick(command());
+        document.getElementById("btn").onclick(execute());
        function command() {
         let values = document.getElementById("word").value;
-        const alert = document.querySelector("#output");
+        const alert = document.querySelector("#input");
         if (values === "Avocado") {
-             document.getElementById("output").innerHTML = "correct";
+             document.getElementById("output").innerHTML += "correct";
         }
         else {
-            document.getElementById("output").innerHTML = "Wrong Value";
+            document.getElementById("output").innerHTML = "Hmm...";
+        }
+        }
+        function execute() {
+        let values = document.getElementById("Number").value;
+        const alert = document.querySelector("#input");
+        if (values === "4121") {
+             document.getElementById("input").innerHTML = "correct";
+        }
+        else {
+            document.getElementById("input").innerHTML = "Hmm...";
         }
         }
     </script>
